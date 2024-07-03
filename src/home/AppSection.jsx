@@ -21,12 +21,12 @@ const AppSection = () => {
         <div className="section-wrapper">
           <ul className="lab-ul">
             <li>
-              <a href="#">
+              <a href="https://play.google.com/store/games?hl=id">
                 <img src="/src/assets/images/app/01.jpg" alt="app-store" />
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="https://www.apple.com/id/app-store/">
                 <img src="/src/assets/images/app/02.jpg" alt="play-store" />
               </a>
             </li>
