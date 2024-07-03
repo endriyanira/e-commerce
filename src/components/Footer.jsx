@@ -219,8 +219,8 @@ const Footer = () => {
                     </div>
                     <div className="content">
                       <ul className="lab-ul office-address">
-                        {tweetList.map((data) => (
-                          <li key={`tweet-${data.text}`}>
+                        {tweetList.map((data, i) => (
+                          <li key={`tweetKey=${i.toString()}}`}>
                             <i className={data.iconName}></i>
                             {data.desc}
                           </li>
