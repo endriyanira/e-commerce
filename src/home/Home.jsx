@@ -20,7 +20,6 @@ const Home = () => {
       <AboutUs />
       <AppSection />
       <Sponsor />
-      <Footer />
     </div>
   );
 };
