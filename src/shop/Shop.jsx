@@ -26,6 +26,22 @@ const Shop = () => {
     setCurrentPage(pageNumber);
   };
 
+  // filter product based on category
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const menuItems = [...new Set(ProductData.map((val) => val.category))];
+
+  const filterItemByCategory = (currentCategory) => {
+    if (currentCategory === "All") {
+      setProducts(ProductData);
+    } else {
+      const newItems = ProductData.filter(
+        (product) => product.category === currentCategory
+      );
+      setProducts(newItems);
+    }
+    setSelectedCategory(currentCategory);
+  };
+
   return (
     <div>
       <PageHeader title="Our Shop Page" currPage="Shop" />
@@ -74,6 +90,13 @@ const Shop = () => {
             <div className="col-lg-4 col-12">
               <aside>
                 <Search products={products} gridList={gridList} />
+                <ShopCategory
+                  filterItems={filterItemByCategory}
+                  setItems={setProducts}
+                  menuItems={menuItems}
+                  setProducts={setProducts}
+                  selectedCategory={selectedCategory}
+                />
               </aside>
             </div>
           </div>
