@@ -40,6 +40,8 @@ const Shop = () => {
       setProducts(newItems);
     }
     setSelectedCategory(currentCategory);
+    // reset currentPage back to 1 because we already change the category
+    setCurrentPage(1);
   };
 
   return (
@@ -92,9 +94,7 @@ const Shop = () => {
                 <Search products={products} gridList={gridList} />
                 <ShopCategory
                   filterItems={filterItemByCategory}
-                  setItems={setProducts}
                   menuItems={menuItems}
-                  setProducts={setProducts}
                   selectedCategory={selectedCategory}
                 />
               </aside>

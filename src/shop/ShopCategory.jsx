@@ -1,12 +1,6 @@
 import React from "react";
 
-const ShopCategory = ({
-  filterItems,
-  setItems,
-  menuItems,
-  setProducts,
-  selectedCategory,
-}) => {
+const ShopCategory = ({ filterItems, menuItems, selectedCategory }) => {
   return (
     <>
       <div className="widget-header">
