@@ -4,8 +4,6 @@ import ProductData from "../products.json";
 import ProductCards from "./ProductCards";
 import Pagination from "./Pagination";
 
-const showResult = "Showing 01 - 12 of 139 Results";
-
 const Shop = () => {
   const [gridList, setGridList] = useState(true);
   const [products, setProducts] = useState(ProductData);
@@ -37,7 +35,9 @@ const Shop = () => {
               <article>
                 {/* layout and title */}
                 <div className="shop-title d-flex flex-wrap justify-content-between">
-                  <p>{showResult}</p>
+                  <p>{`Showing ${
+                    indexOfFirstProduct + 1
+                  } - ${indexOfLastProduct} of 139 Results`}</p>
                   <div
                     className={`product-view-mode ${
                       gridList ? "gridActive" : "listActive"
