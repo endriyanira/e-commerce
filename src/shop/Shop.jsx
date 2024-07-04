@@ -2,13 +2,29 @@ import React, { useState } from "react";
 import PageHeader from "../components/PageHeader";
 import ProductData from "../products.json";
 import ProductCards from "./ProductCards";
-import { Pagination } from "react-bootstrap";
+import Pagination from "./Pagination";
 
 const showResult = "Showing 01 - 12 of 139 Results";
 
 const Shop = () => {
   const [gridList, setGridList] = useState(true);
   const [products, setProducts] = useState(ProductData);
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 12;
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  // change current page
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div>
@@ -38,11 +54,19 @@ const Shop = () => {
 
                 {/* product cards */}
                 <div className="">
-                  <ProductCards gridList={gridList} products={products} />
+                  <ProductCards
+                    gridList={gridList}
+                    products={currentProducts}
+                  />
                 </div>
 
                 {/* Pagination */}
-                <Pagination />
+                <Pagination
+                  productsPerPage={productsPerPage}
+                  totalProducts={products.length}
+                  paginate={paginate}
+                  activePage={currentPage}
+                />
               </article>
             </div>
             <div className="col-lg-4 col-12">right-side</div>
