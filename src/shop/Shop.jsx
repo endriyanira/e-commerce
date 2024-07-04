@@ -3,6 +3,8 @@ import PageHeader from "../components/PageHeader";
 import ProductData from "../products.json";
 import ProductCards from "./ProductCards";
 import Pagination from "./Pagination";
+import Search from "./Search";
+import ShopCategory from "./ShopCategory";
 
 const Shop = () => {
   const [gridList, setGridList] = useState(true);
@@ -69,7 +71,11 @@ const Shop = () => {
                 />
               </article>
             </div>
-            <div className="col-lg-4 col-12">right-side</div>
+            <div className="col-lg-4 col-12">
+              <aside>
+                <Search products={products} gridList={gridList} />
+              </aside>
+            </div>
           </div>
         </div>
       </div>
